@@ -1,18 +1,21 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { CREATE_FAQ_DTO, UPDATE_FAQ_DTO } from './DTO/faq.dto';
+import { FAQService } from './f-a-q.service';
 
 @Controller('f-a-q')
 export class FAQController {
 
+    constructor(private faqService: FAQService) { }
+
     @Get()
     fetchAllFAQ() {
-        return [];
+        return this.faqService.fetchAllFAQ();
     }
 
     @Post()
     createFAQ(@Body() payload: CREATE_FAQ_DTO) {
-        return null;
+        return this.faqService.createFAQ(payload);
     }
 
     @Put(':id')
@@ -20,11 +23,11 @@ export class FAQController {
         @Body() payload: UPDATE_FAQ_DTO,
         @Param() id: string
     ) {
-        return null;
+        return this.faqService.updateFAQ(payload, id);
     }
 
     @Delete(':id')
     deleteFAQ(@Param() id: string) {
-        return null;
+        return this.faqService.deleteFAQ(id);
     }
 }
