@@ -1,8 +1,8 @@
-import { CreateDateColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 export default class BASE__ENTITY {
 
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: string;
 
     @CreateDateColumn()
