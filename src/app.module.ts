@@ -4,8 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConnectionConfiguration } from './common/data-source';
 import { ConfigModule } from '@nestjs/config';
 import { FAQModule } from './Modules/f-a-q/f-a-q.module';
-import { FAQController } from './Modules/f-a-q/f-a-q.controller';
-import { FAQService } from './Modules/f-a-q/f-a-q.service';
 
 @Module({
   imports: [
@@ -13,7 +11,7 @@ import { FAQService } from './Modules/f-a-q/f-a-q.service';
     TypeOrmModule.forRootAsync(ConnectionConfiguration),
     FAQModule,
   ],
-  controllers: [FAQController],
-  providers: [FAQService]
+  controllers: [],
+  providers: []
 })
 export class AppModule { }
