@@ -14,7 +14,7 @@ export class FAQController {
     }
 
     @Post()
-    createFAQ(@Body() payload: CREATE_FAQ_DTO) {
+    createFAQ(@Body() payload: CREATE_FAQ_DTO[]) {
         return this.faqService.createFAQ(payload);
     }
 

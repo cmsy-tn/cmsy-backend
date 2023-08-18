@@ -12,17 +12,22 @@ export class FAQService {
         @InjectRepository(FAQ_ENTITY) private faqRepo: Repository<FAQ_ENTITY>
     ) { }
 
-
     fetchAllFAQ() {
         return this.faqRepo.find();
     }
 
-
-    createFAQ(payload: CREATE_FAQ_DTO) {
-        const data = this.faqRepo.create({ ...payload });
-        return this.faqRepo.save(data);
+    createFAQ(payload: CREATE_FAQ_DTO[]) {
+        if (payload.length > 1) {
+            payload.map((payload_saghrouna: CREATE_FAQ_DTO) => {
+                const data = this.faqRepo.create({ ...payload_saghrouna });
+                this.faqRepo.save(data);
+            })
+        } else {
+            const data = this.faqRepo.create({ ...payload });
+            return this.faqRepo.save(data);
+        }
+        return 1;
     }
-
 
     updateFAQ(
         payload: UPDATE_FAQ_DTO,
@@ -30,7 +35,6 @@ export class FAQService {
     ) {
         return this.faqRepo.update({ id }, { ...payload });
     }
-
 
     deleteFAQ(id: string) {
         return this.faqRepo.delete({ id });
