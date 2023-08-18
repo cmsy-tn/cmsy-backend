@@ -17,15 +17,10 @@ export class FAQService {
     }
 
     createFAQ(payload: CREATE_FAQ_DTO[]) {
-        if (payload.length > 1) {
-            payload.map((payload_saghrouna: CREATE_FAQ_DTO) => {
-                const data = this.faqRepo.create({ ...payload_saghrouna });
-                this.faqRepo.save(data);
-            })
-        } else {
-            const data = this.faqRepo.create({ ...payload });
-            return this.faqRepo.save(data);
-        }
+        payload.map((payload_saghrouna: CREATE_FAQ_DTO) => {
+            const data = this.faqRepo.create({ ...payload_saghrouna });
+            this.faqRepo.save(data);
+        })
         return 1;
     }
 
