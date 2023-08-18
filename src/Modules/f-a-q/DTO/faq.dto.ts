@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator'
+import { IsBoolean, IsString } from 'class-validator'
 
 export class CREATE_FAQ_DTO {
     @IsString()
@@ -6,6 +6,12 @@ export class CREATE_FAQ_DTO {
 
     @IsString()
     readonly answer: string;
+
+    @IsBoolean()
+    hasCategory: boolean;
+
+    @IsString()
+    category: string;
 }
 
 export class UPDATE_FAQ_DTO {
@@ -14,4 +20,10 @@ export class UPDATE_FAQ_DTO {
 
     @IsString()
     readonly answer: string;
+
+    @IsBoolean()
+    hasCategory: boolean;
+
+    @IsString()
+    category: string;
 }
