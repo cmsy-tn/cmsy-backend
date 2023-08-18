@@ -11,9 +11,9 @@ export default class FAQ_ENTITY extends BASE__ENTITY {
     @Column()
     answer: string;
 
-    @Column()
+    @Column({ default: false })
     hasCategory: boolean;
 
-    @Column()
+    @Column({ default: '' })
     category: string;
 }
