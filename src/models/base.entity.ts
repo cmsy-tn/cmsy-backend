@@ -2,7 +2,7 @@ import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "type
 
 export default class BASE__ENTITY {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @CreateDateColumn()
