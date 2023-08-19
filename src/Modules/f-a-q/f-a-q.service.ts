@@ -31,8 +31,10 @@ export class FAQService {
         return this.faqRepo.update({ id }, { ...payload });
     }
 
-    deleteFAQ(id: string) {
-        return this.faqRepo.delete({ id });
+    async deleteFAQ(id: string) {
+        const FAQ_ID = id['id'].toString();
+        const data = await this.faqRepo.delete({ id: FAQ_ID });
+        return data.affected;
     }
 
 }
