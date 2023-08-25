@@ -2,8 +2,10 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { CREATE_FAQ_DTO, UPDATE_FAQ_DTO } from './DTO/faq.dto';
 import { FAQService } from './f-a-q.service';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('f-a-q')
+@ApiTags('FAQ')
 export class FAQController {
 
     constructor(private faqService: FAQService) { }
