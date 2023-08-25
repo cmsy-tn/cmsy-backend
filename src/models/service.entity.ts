@@ -16,11 +16,11 @@ export default class SERVICE_ENTITY extends BASE__ENTITY {
     call_to_action: string;
 
     @Column()
-    subServices: string[];
+    subServices: string;
 
     @Column({ default: false })
     service_has_faq: boolean;
 
-    @Column()
-    service_faqs: FAQ_ENTITY[];
+    // @Column()
+    // service_faqs: FAQ_ENTITY[];
 }
