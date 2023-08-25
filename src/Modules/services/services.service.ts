@@ -14,11 +14,8 @@ export class ServicesService {
     }
 
     create(payload: any[]) {
-        payload.map((payload_saghrouna: any) => {
-            const data = this.serviceRepo.create({ ...payload_saghrouna });
-            this.serviceRepo.save(data);
-        })
-        return 1;
+        const data = this.serviceRepo.create({ ...payload });
+        return this.serviceRepo.save(data);
     }
 
     update(
