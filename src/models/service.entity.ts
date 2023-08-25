@@ -1,9 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Column, Entity } from "typeorm";
 import BASE__ENTITY from "./base.entity";
-import FAQ_ENTITY from "./faq.entity";
 
-@Entity('SERVICE')
+@Entity('service')
 export default class SERVICE_ENTITY extends BASE__ENTITY {
 
     @Column()
