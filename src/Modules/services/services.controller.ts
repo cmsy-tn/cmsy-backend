@@ -7,26 +7,26 @@ export class ServicesController {
     constructor(private servicesService: ServicesService) { }
 
     @Get()
-    fetchAllFAQ() {
-        return this.servicesService.fetchAllFAQ();
+    fetchAll() {
+        return this.servicesService.fetchAll();
     }
 
     @Post()
-    createFAQ(@Body() payload: any[]) {
-        return this.servicesService.createFAQ(payload);
+    create(@Body() payload: any[]) {
+        return this.servicesService.create(payload);
     }
 
     @Put(':id')
-    updateFAQ(
+    update(
         @Body() payload: any,
         @Param() id: string
     ) {
-        return this.servicesService.updateFAQ(payload, id);
+        return this.servicesService.update(payload, id);
     }
 
     @Delete(':id')
-    deleteFAQ(@Param() id: string) {
-        return this.servicesService.deleteFAQ(id);
+    delete(@Param() id: string) {
+        return this.servicesService.delete(id);
     }
 
 }
