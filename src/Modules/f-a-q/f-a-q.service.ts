@@ -16,12 +16,9 @@ export class FAQService {
         return this.faqRepo.find();
     }
 
-    createFAQ(payload: CREATE_FAQ_DTO[]) {
-        payload.map((payload_saghrouna: CREATE_FAQ_DTO) => {
-            const data = this.faqRepo.create({ ...payload_saghrouna });
-            this.faqRepo.save(data);
-        })
-        return 1;
+    createFAQ(payload: CREATE_FAQ_DTO) {
+        const data = this.faqRepo.create({ ...payload });
+        return this.faqRepo.save(data);
     }
 
     updateFAQ(
