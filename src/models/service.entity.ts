@@ -20,6 +20,5 @@ export default class SERVICE_ENTITY extends BASE__ENTITY {
     @Column({ default: false })
     service_has_faq: boolean;
 
-    // @Column()
-    // service_faqs: FAQ_ENTITY[];
+    // @TODO: 1-n relationship with faqs
 }
