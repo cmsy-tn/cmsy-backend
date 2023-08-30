@@ -22,13 +22,13 @@ export class ServicesService {
         payload: any,
         id: string
     ) {
-        const FAQ_ID = id['id'].toString();
-        return this.serviceRepo.update({ id: FAQ_ID }, { ...payload });
+        const SERVICE_ID = id['id'].toString();
+        return this.serviceRepo.update({ id: SERVICE_ID }, { ...payload });
     }
 
     async delete(id: string) {
-        const FAQ_ID = id['id'].toString();
-        const data = await this.serviceRepo.delete({ id: FAQ_ID });
+        const SERVICE_ID = id['id'].toString();
+        const data = await this.serviceRepo.delete({ id: SERVICE_ID });
         return data.affected;
     }
 }
