@@ -13,6 +13,16 @@ export class ServicesService {
         return this.serviceRepo.find();
     }
 
+    fetchOne(id: string) {
+        const SERVICE_ID = id['id'].toString();
+        return this.serviceRepo.find(
+            {
+                where: { id: SERVICE_ID },
+                relations: ['related_faqs']
+            }
+        );
+    }
+
     create(payload: any[]) {
         const data = this.serviceRepo.create({ ...payload });
         return this.serviceRepo.save(data);

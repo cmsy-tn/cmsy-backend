@@ -13,6 +13,11 @@ export class ServicesController {
         return this.servicesService.fetchAll();
     }
 
+    @Get(':id')
+    fetchOne(@Param() id: string) {
+        return this.servicesService.fetchOne(id);
+    }
+
     @Post()
     create(@Body() payload: any[]) {
         return this.servicesService.create(payload);
