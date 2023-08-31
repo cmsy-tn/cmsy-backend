@@ -7,6 +7,11 @@ import { BlogService } from './blog.service';
 export class BlogController {
     constructor(private blogService: BlogService) { }
 
+    @Get(':id')
+    fetchOne(@Param() id: string) {
+        return this.blogService.fetchOne(id);
+    }
+
     @Get()
     fetchAll() {
         return this.blogService.fetchAll();

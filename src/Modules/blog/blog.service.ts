@@ -9,7 +9,10 @@ export class BlogService {
         @InjectRepository(BLOGPOST) private blogRepo: Repository<BLOGPOST>
     ) { }
 
-
+    fetchOne(id: string) {
+        const BLOG_ID = id['id'].toString();
+        return this.blogRepo.findOneBy({ id: BLOG_ID });
+    }
 
     fetchAll() {
         return this.blogRepo.find();
