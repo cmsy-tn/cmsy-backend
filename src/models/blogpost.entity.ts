@@ -11,7 +11,7 @@ export default class BLOGPOST extends BASE__ENTITY {
     @Column({ type: 'text' })
     post_content: string;
 
-    @Column({ default: 'https://www.fagerhult.com/assets/images/no-image-available.jpg' })
+    @Column()
     post_cover_image: string;
 
     @Column()

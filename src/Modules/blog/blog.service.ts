@@ -18,7 +18,9 @@ export class BlogService {
         return this.blogRepo.find();
     }
 
-    create(payload: any[]) {
+    create(payload: any) {
+        if (payload.post_cover_image === '')
+            payload.post_cover_image = 'https://www.fagerhult.com/assets/images/no-image-available.jpg';
         const data = this.blogRepo.create({ ...payload });
         return this.blogRepo.save(data);
     }
