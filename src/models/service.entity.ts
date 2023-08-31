@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany } from "typeorm";
 import BASE__ENTITY from "./base.entity";
+import FAQ_ENTITY from "./faq.entity";
 
 @Entity('service')
 export default class SERVICE_ENTITY extends BASE__ENTITY {
@@ -20,5 +21,8 @@ export default class SERVICE_ENTITY extends BASE__ENTITY {
     @Column({ default: false })
     service_has_faq: boolean;
 
-    // @TODO: 1-n relationship with faqs
+    // *** RELATIONS
+    @OneToMany(() => FAQ_ENTITY, (related_faqs) => related_faqs.services_related_to)
+    @JoinColumn()
+    related_faqs: FAQ_ENTITY[];
 }
