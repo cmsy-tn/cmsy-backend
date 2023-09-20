@@ -6,6 +6,9 @@ import { ConfigModule } from '@nestjs/config';
 import { FAQModule } from './Modules/f-a-q/f-a-q.module';
 import { ServicesModule } from './Modules/services/services.module';
 import { BlogModule } from './Modules/blog/blog.module';
+import { UserModule } from './Modules/user/user.module';
+import { UserController } from './Modules/user/user.controller';
+import { UserService } from './modules/user/user.service';
 
 @Module({
   imports: [
@@ -14,8 +17,9 @@ import { BlogModule } from './Modules/blog/blog.module';
     FAQModule,
     ServicesModule,
     BlogModule,
+    UserModule,
   ],
-  controllers: [],
-  providers: []
+  controllers: [UserController],
+  providers: [UserService]
 })
 export class AppModule { }
